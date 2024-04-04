@@ -1,0 +1,40 @@
+//linguagem ultilizada: Cpp
+
+#include <iostream>
+
+// Função para verificar se um número pertence à sequência de Fibonacci
+bool verificaFibonacci(int numero) {
+    // Inicializa os dois primeiros números da sequência de Fibonacci
+    int fib_antecessor = 0;
+    int fib_sucessor = 1;
+
+    // Enquanto o fib_sucessor for menor ou igual ao número informado
+    while (fib_sucessor <= numero) {
+        // Se o número informado for igual ao fib_sucessor, retorna true
+        if (fib_sucessor == numero)
+            return true;
+
+        // Atualiza os valores da sequência de Fibonacci
+        int temp = fib_sucessor;
+        fib_sucessor = fib_antecessor + fib_sucessor;
+        fib_antecessor = temp;
+    }
+    // Se o número informado não for encontrado na sequência, retorna false
+    return false;
+}
+
+// Função principal
+int main() {
+    // Solicita ao usuário que informe um número
+    int numero;
+    std::cout << "Informe um numero para verificar se pertence a sequencia de Fibonacci: ";
+    std::cin >> numero;
+
+    // Verifica se o número informado pertence à sequência de Fibonacci
+    if (verificaFibonacci(numero))
+        std::cout << "O numero " << numero << " pertence a sequencia de Fibonacci." << std::endl;
+    else
+        std::cout << "O numero " << numero << " nao pertence a sequencia de Fibonacci." << std::endl;
+
+    return 0;
+}
